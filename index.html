@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Tarefas</title>
+    <style>
+    #app{
+        user-select: none;
+    }
+    h2{
+        text-shadow:3px 3px 5px #c0c0c0;
+    }
+    input[type="text"], input[type="text"]:focus{
+        border-radius:5px;
+        padding:5px;
+        background:#2f2f2f;
+        color:rgb(255, 196, 0);
+    }
+    .shadow{
+        box-shadow:3px 3px 5px #c0c0c0;
+    }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div class="container">
+        <div class="col-md-8 offset-md-2">
+            <div id="app">
+                <br>
+                <h2 class="text-center" style="">Tarefas</h2>
+                <div v-for="task in tasks">
+                    <card v-bind:title="task.id">{{task.task}}</card>
+                </div>
+                <br>
+                <div class="form-row">
+                    <input type="text" v-model="text" class="form-control col-md-9">
+                    <button class="btn btn-info col-md-2 form-control shadow" @click="addTask" type="button">Adicionar</button>
+                    <button class="btn btn-danger col-md-1 form-control shadow" @click="resetTasks" title="Resetar" type="button">X</button>
+                </div>
+            
+            </div>        
+        </div>
+        </div>
+    <script src="vueapp.js"></script>
+</body>
+</html>
